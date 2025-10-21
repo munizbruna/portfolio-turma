@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard de Projetos de Alunos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link para o CSS do Swiper (Slider) -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      .card-hover-effect {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+      .card-hover-effect:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.2),
+          0 8px 10px -6px rgb(0 0 0 / 0.2);
+      }
+      /* Estilos para o slider */
+      .swiper-container {
+        width: 100%;
+        height: 100%;
+      }
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .swiper-pagination-bullet-active {
+        background-color: #a78bfa !important;
+      }
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: #fff !important;
+      }
+      iframe {
+        border: none;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white antialiased">
+    <!-- Container Principal -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <!-- Cabeçalho -->
+      <header class="text-center mb-12">
+        <h1 class="text-4xl sm:text-5xl font-bold tracking-tight">
+          Galeria de Projetos <span class="text-purple-400">1DTM 2025</span>
+        </h1>
+        <p class="mt-4 text-lg text-gray-400">
+          Conheça os trabalhos incríveis dos nossos futuros desenvolvedores!
+        </p>
+        <!-- Botão para abrir o slider -->
+        <button
+          id="open-slider-btn"
+          class="mt-6 bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
+        >
+          Ver Fotos da Turma
+        </button>
+      </header>
+
+      <!-- Galeria de Projetos (será preenchida via JavaScript) -->
+      <main
+        id="project-gallery"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+      >
+        <!-- Os cards dos alunos serão inseridos aqui -->
+      </main>
+
+      <!-- Rodapé -->
+      <footer class="text-center mt-12 border-t border-gray-700 pt-6">
+        <p class="text-gray-500">
+          &copy; 2025 Galeria de Projetos 1DTM. Todos os direitos reservados.
+        </p>
+      </footer>
+    </div>
+
+    <!-- Fullscreen Slider Modal -->
+    <div
+      id="fullscreen-slider"
+      class="hidden fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center"
+    >
+      <!-- Close Button -->
+      <button
+        id="close-slider-btn"
+        class="absolute top-5 right-5 text-white text-5xl z-50 leading-none"
+      >
+        &times;
+      </button>
+
+      <!-- Swiper Container -->
+      <div class="swiper-container w-full h-full md:w-4/5 md:h-4/5">
+        <div class="swiper-wrapper">
+          <!-- Slides com as fotos da turma. As imagens devem estar na mesma pasta que este arquivo HTML. -->
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm.jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (1).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (2).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (3).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (4).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (5).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (6).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (7).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (8).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (9).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (10).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (11).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (12).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (13).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (14).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (15).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (16).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (17).jpeg')"
+          ></div>
+          <div
+            class="swiper-slide bg-contain bg-center bg-no-repeat"
+            style="background-image: url('1dtm1 (18).jpeg')"
+          ></div>
+          <div class="swiper-slide bg-contain bg-center bg-no-repeat" style="background-image: url('1dtm1 (19).jpeg')"></div>
+        </div>
+        <!-- Paginação (bolinhas) -->
+        <div class="swiper-pagination"></div>
+        <!-- Botões de Navegação -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+
+    <!-- Link para o JS do Swiper (Slider) -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Script para gerar os cards e inicializar o slider -->
+    <script>
+      // --- DADOS DOS ALUNOS ---
+      const alunos = [
+        {
+          nome: "ANA CAROLINA DOS SANTOS GALANTE",
+          github: "AnaGalante08",
+          projetoUrl: "https://portifoliocarol.onrender.com",
+          genero: "f",
+        },
+        {
+          nome: "ANDRÉ MOREIRA JACOBINO",
+          github: "AndreJacobino",
+          projetoUrl: "https://andrejacobino.github.io/Portifolio/",
+          genero: "m",
+        },
+        {
+          nome: "ANDRÉ ZANCAN ROSA",
+          github: "AndreZR0sa",
+          projetoUrl: "https://portifolio-ap0z.onrender.com/",
+          genero: "m",
+        },
+        {
+          nome: "ARIELLY SILVA RODRIGUES",
+          github: "ariellyr",
+          projetoUrl: "https://portifolio-arielly.onrender.com",
+          genero: "f",
+        },
+        {
+          nome: "BEATRIZ DE FELIPPO SOUZA CIRINO",
+          github: "beatrizfppo",
+          projetoUrl: "https://portf-liobeatriz.onrender.com",
+          genero: "f",
+        },
+        {
+          nome: "BRENNO DOS SANTOS FAUSTINO MOTTA",
+          github: "Brenno-dos-Santos",
+          projetoUrl: "https://portifolio-ncfh.onrender.com",
+          genero: "m",
+        },
+        {
+          nome: "FELIPE COSTA OLIVEIRA",
+          github: "Felipe-Costa14",
+          projetoUrl: "https://felipe-costa14.github.io/Portfolio/",
+          genero: "m",
+        },
+        {
+          nome: "GEOVANNA BOGOVICZ PAZINI",
+          github: "geovanna-bogovicz-pazini",
+          projetoUrl: "https://projeto-portifolio-nvwb.onrender.com",
+          genero: "f",
+        },
+        {
+          nome: "GEOVANNA GUERRA GONZAGA",
+          github: "geeguerra",
+          projetoUrl: "https://geeguerra.github.io/geeportfolio/",
+          genero: "f",
+        },
+        {
+          nome: "GIOVANA DOS SANTOS BITENCORTE",
+          github: "gbitencorte",
+          projetoUrl: "https://portfolio-giovanabitencorte.onrender.com/",
+          genero: "f",
+        },
+        {
+          nome: "GIOVANNA FERREIRA ROSSATO",
+          github: "rossatogiovanna",
+          projetoUrl: "https://portfolio-gioar.onrender.com",
+          genero: "f",
+        },
+        {
+          nome: "HENRIQUE PRANDO DE OLIVEIRA",
+          github: "prandola",
+          projetoUrl: "https://portifolio-henrique.onrender.com",
+          genero: "m",
+        },
+        {
+          nome: "ISABELA MACHADO GREJANIN",
+          github: "isabelagrejanin",
+          projetoUrl: "https://isabelagrejanin.github.io/Portfolio/",
+          genero: "f",
+        },
+        {
+          nome: "ISABELLA DELGADO DOS SANTOS",
+          github: "isabelladelgado",
+          projetoUrl: "https://isabelladelgado.github.io/portfolio/",
+          genero: "f",
+        },
+        {
+          nome: "JOÃO VITOR DE LIMA PRIMO",
+          github: "JoaoVitorPrimo",
+          projetoUrl: "https://joaovitorprimo.github.io/Portfolio/",
+          genero: "m",
+        },
+        {
+          nome: "JULIA DIANA DE PAULA",
+          github: "Juliadpaula",
+          projetoUrl: "https://juliadpaula.github.io/portifolio/",
+          genero: "f",
+        },
+        {
+          nome: "KAICK GONÇALVES FLAUZINO",
+          github: "KFlauzino",
+          projetoUrl: "https://portfolio-kaick.onrender.com/",
+          genero: "m",
+        },
+        {
+          nome: "KAIQUE SASAKI DE CAMPOS",
+          github: "Kazaki-Dev0",
+          projetoUrl: "https://kazaki-dev0.github.io/Portif-lio2.0-main/",
+          genero: "m",
+        },
+        {
+          nome: "KAYKY RODRIGUES DE PAULA",
+          github: "kayky-ctrl",
+          projetoUrl: "https://porfolio-u9gf.onrender.com",
+          genero: "m",
+        },
+        {
+          nome: "LARISSA HELENA MACHADO CARDOSO",
+          github: "LariCardoso21",
+          projetoUrl: "https://laricardoso21.github.io/POSTIFOLIO/",
+          genero: "f",
+        },
+        {
+          nome: "LÉO HENRIQUE FELIX DA SILVA",
+          github: "leohsilva7",
+          projetoUrl: "https://portifolio-2-ivrh.onrender.com/",
+          genero: "m",
+        },
+        {
+          nome: "LYVIA DA MATA LIMA",
+          github: "Lyvia-07",
+          projetoUrl: "https://portf-lio-bgpt.onrender.com",
+          genero: "f",
+        },
+        {
+          nome: "MANUELA GOMES RIBEIRO",
+          github: "manuriio",
+          projetoUrl: "https://manuriio.github.io/portif-lio/",
+          genero: "f",
+        },
+        {
+          nome: "MARIANA LIMA FERNANDES",
+          github: "M1guelL1ma",
+          projetoUrl: "https://m1guell1ma.github.io/MeuPortifolio/",
+          genero: "f",
+        },
+        {
+          nome: "MATHEUS HENRIQUE MACHADO DE PAULA",
+          github: "mathzaday",
+          projetoUrl: "https://portfolio-25-09.onrender.com/",
+          genero: "m",
+        },
+        {
+          nome: "MAYRA CLEMENTE AMERICO NERY",
+          github: "MayraNery",
+          projetoUrl: "https://mayranery.github.io/portifoliomodelo/",
+          genero: "f",
+        },
+        {
+          nome: "MONIQUE RODRIGUES DA SILVA",
+          github: "moniquesilva05",
+          projetoUrl: "https://moniquesilva05.github.io/portifolio/",
+          genero: "f",
+        },
+        {
+          nome: "NICOLLY LOSNAQUE NUNES",
+          github: "NicollyNunes",
+          projetoUrl: "https://nicollynunes.github.io/Portfolio-/",
+          genero: "f",
+        },
+        {
+          nome: "PEDRO HENRIQUE SOUZA DA SILVA",
+          github: "PedrohsSilva",
+          projetoUrl: "https://pedrohssilva.github.io/Portfolio/",
+          genero: "m",
+        },
+        {
+          nome: "VINÍCIUS CESAR MACHADO CARDOSO",
+          github: "viniciuscesarcardoso",
+          projetoUrl: "https://viniciuscesarcardoso.github.io/Portfolio/",
+          genero: "m",
+        },
+        {
+          nome: "YASMIM MEIRA LIVON",
+          github: "Yasmimlivon",
+          projetoUrl: "https://portifolio-qcv3.onrender.com",
+          genero: "f",
+        },
+        {
+          nome: "YASMIN GABRIELLA CAVALCANTI DE BARROS",
+          github: "yagabxc",
+          projetoUrl: "https://portfolio-yasmin-gcb.onrender.com/",
+          genero: "f",
+        },
+      ];
+
+      // Função para criar o HTML de cada card de projeto
+      function createProjectCard(aluno) {
+        const tagColor = "bg-blue-500 text-white"; // Cor padrão para a tag "Portfólio"
+        const tituloDev =
+          aluno.genero === "f"
+            ? "Futura Desenvolvedora"
+            : "Futuro Desenvolvedor";
+        const githubUrl = `https://github.com/${aluno.github}`;
+
+        return `
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg card-hover-effect flex flex-col">
+                    <div class="relative">
+                        <iframe class="w-full h-56" sandbox="allow-scripts" src="${
+                          aluno.projetoUrl
+                        }" title="Preview do Portfólio de ${
+          aluno.nome
+        }" loading="lazy" scrolling="no"></iframe>
+                        <div class="absolute inset-0 bg-transparent"></div> <!-- Overlay para prevenir interação direta com o iframe -->
+                        <div class="absolute top-0 right-0 ${tagColor} text-xs font-semibold px-3 py-1 m-2 rounded-full">Portfólio</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center mb-4 flex-grow">
+                            <img class="w-10 h-10 rounded-full mr-4" src="https://api.dicebear.com/8.x/bottts/svg?seed=${
+                              aluno.github
+                            }" alt="Avatar do aluno ${aluno.nome}">
+                            <div>
+                                <p class="font-semibold text-lg capitalize">${aluno.nome.toLowerCase()}</p>
+                                <p class="text-gray-400 text-sm">${tituloDev}</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-between mt-auto">
+                            <a href="${
+                              aluno.projetoUrl
+                            }" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                                Ver Portfólio
+                            </a>
+                            <a href="${githubUrl}" target="_blank" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+      }
+
+      // --- INICIALIZAÇÃO ---
+      document.addEventListener("DOMContentLoaded", () => {
+        // Preenche a galeria de projetos
+        const gallery = document.getElementById("project-gallery");
+        if (gallery) {
+          gallery.innerHTML = alunos.map(createProjectCard).join("");
+        }
+
+        // --- LÓGICA DO SLIDER ---
+        const openSliderBtn = document.getElementById("open-slider-btn");
+        const closeSliderBtn = document.getElementById("close-slider-btn");
+        const fullscreenSlider = document.getElementById("fullscreen-slider");
+
+        // Inicializa o Swiper (slider)
+        const swiper = new Swiper(".swiper-container", {
+          loop: true,
+          autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+
+        // Função para abrir o slider
+        openSliderBtn.addEventListener("click", () => {
+          fullscreenSlider.classList.remove("hidden");
+          document.body.style.overflow = "hidden"; // Previne o scroll da página ao fundo
+          swiper.update(); // Atualiza o swiper para garantir que as dimensões estão corretas
+        });
+
+        // Função para fechar o slider
+        const closeSlider = () => {
+          fullscreenSlider.classList.add("hidden");
+          document.body.style.overflow = ""; // Restaura o scroll da página
+        };
+
+        closeSliderBtn.addEventListener("click", closeSlider);
+
+        // Fecha o slider com a tecla 'Escape'
+        document.addEventListener("keydown", (event) => {
+          if (
+            event.key === "Escape" &&
+            !fullscreenSlider.classList.contains("hidden")
+          ) {
+            closeSlider();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
